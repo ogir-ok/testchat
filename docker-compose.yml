@@ -1,0 +1,14 @@
+version: "3.2"
+services:
+  server:
+    image: python:3.9
+    volumes:
+      - .:/src
+    command: python /src/sock_server.py
+  client:
+    image: python:3.9
+    volumes:
+      - .:/src
+    command: python /src/sock_client.py
+    depends_on:
+      - server
